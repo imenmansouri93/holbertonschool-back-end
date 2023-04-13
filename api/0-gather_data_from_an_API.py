@@ -6,15 +6,16 @@ Gather data from an API
 import requests
 import sys
 
+
 if __name__ == '__main__':
     Id = sys.argv[1]
-    playload = {"useId": Id}
+    payload = {"useId": Id}
     user = requests.get(
         "https://jsonplaceholder.typicode.com/users/{}"
         .format(Id)).json()
     list = requests.get(
         "https://jsonplaceholder.typicode.com/todos",
-        params=playload).json()
+        params=payload).json()
     
     completed = []
     for task in list:
