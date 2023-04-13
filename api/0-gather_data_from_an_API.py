@@ -4,13 +4,9 @@ import requests
 import sys
 if __name__ == '__main__':
     Id = sys.argv[1]
-    payload = {"useId": Id}
-    user = requests.get(
-        "https://jsonplaceholder.typicode.com/users/{}"
-        .format(Id)).json()
-    list = requests.get(
-        "https://jsonplaceholder.typicode.com/todos",
-        params=payload).json()
+    user = requests.get("https://jsonplaceholder.typicode.com/users/{}".format(Id)).json()
+    todos = requests.get(
+        "https://jsonplaceholder.typicode.com/todos",params={"userId": Id}).json()
     
     completed = []
     for task in list:
@@ -20,3 +16,5 @@ if __name__ == '__main__':
         user.get("name"), len(completed), len(list)))
     for complete in completed:
         print("\t {}".format(complete))
+
+
