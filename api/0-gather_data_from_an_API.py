@@ -1,12 +1,7 @@
 #!/usr/bin/python3
-"""
-Gather data from an API
-"""
-
+"""Gather data from an API"""
 import requests
 import sys
-
-
 if __name__ == '__main__':
     Id = sys.argv[1]
     payload = {"useId": Id}
@@ -21,7 +16,7 @@ if __name__ == '__main__':
     for task in list:
         if task.get("completed") is True:
             completed.append(task.get("title"))
-        print("Employee {} is done with tasks({}/{}):".format(
-            user.get("name"), len(completed), len(list)))
-        for complete in completed:
-            print("\t {}".format(complete))
+    print("Employee {} is done with tasks({}/{}):".format(
+        user.get("name"), len(completed), len(list)))
+    for complete in completed:
+        print("\t {}".format(complete))
