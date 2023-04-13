@@ -9,7 +9,7 @@ if __name__ == '__main__':
         "https://jsonplaceholder.typicode.com/todos",params={"userId": Id}).json()
     
     completed = []
-    for task in list:
+    for task in todos:
         if task.get("completed") is True:
             completed.append(task.get("title"))
     print("Employee {} is done with tasks({}/{}):".format(
